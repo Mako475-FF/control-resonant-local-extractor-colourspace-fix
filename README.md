@@ -1,3 +1,9 @@
+# This is a fork of the project
+
+This is a fork of Gerald-Ha's project, which can be found here: https://github.com/Gerald-Ha/control-resonant-local-extractor .
+
+All it changes is a single filter that allows the exported PNG files of the artbook to have correct red and blue pixel values.
+
 # Control Resonant Local Extractor
 
 An **unofficial, local-only Linux exporter** for music and Deluxe Artbook assets from a legitimately installed copy of *Control Resonant*. Tested on Fedora with **19 music tracks** and **201 Artbook PNGs** successfully Extracted, alongside automated tests using synthetic files.
