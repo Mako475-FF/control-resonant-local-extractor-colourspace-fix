@@ -407,7 +407,7 @@ def export_artbook(catalog: ArchiveCatalog, args):
             if args.overwrite or not png.is_file() or not png.stat().st_size:
                 subprocess.run([
                     ffmpeg, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-                    "-i", str(dds), "-frames:v", "1", str(result),
+                    "-i", str(dds), "-frames:v", "1", "-vf", "format=rgb24,geq=r='b(X,Y)':g='g(X,Y)':b='r(X,Y)'" , str(result), #finally managed to get it down to changing the colour - turns out that this process pulls out some funky dds files (ImageMagick didn't even recognise it as dds), so we had to get a little bit more creative by switching values - tried a couple other simpler methods, they gave errors
                 ], check=True)
                 if not result.is_file() or result.stat().st_size < 8:
                     raise ExportError(f"PNG conversion failed: {entry['full_name']}")
